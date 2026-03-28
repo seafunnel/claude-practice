@@ -24,3 +24,15 @@ if __name__ == "__main__":
     test_apply_tax()
     test_full_pipeline()
     print("All tests passed.")
+
+def test_apply_tax_invalid():
+    try:
+        apply_tax(100, 1.5)
+        assert False, "Should have raised ValueError"
+    except ValueError:
+        pass
+    try:
+        apply_tax(-10, 0.08)
+        assert False, "Should have raised ValueError"
+    except ValueError:
+        pass
