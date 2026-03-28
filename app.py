@@ -6,6 +6,11 @@ def calculate_discount(price, discount_percent):
     return price - discount
 
 def apply_tax(price, tax_rate):
+    """Apply a tax rate. tax_rate is a value between 0 and 1 (e.g. 0.08 = 8%)."""
+    if not 0 <= tax_rate <= 1:
+        raise ValueError(f"tax_rate must be between 0 and 1, got {tax_rate}")
+    if price < 0:
+        raise ValueError(f"price cannot be negative, got {price}")
     return price + (price * tax_rate)
 
 if __name__ == "__main__":
